@@ -10,9 +10,6 @@
 (column-number-mode)
 (global-display-line-numbers-mode t)
 
-;; think I broke these...
-;;(auto-save-file-name-transforms '((".*" "~/.config/emacs/autosaves/" t)))
-;;(backup-directory-alist '((".*" . "~/.config/emacs/backups/")))
 (make-directory "~/.config/emacs/autosaves/" t)
 (make-directory "~/.config/emacs/backups/" t)
 
@@ -94,11 +91,13 @@
   :commands magit-status)
 
 ;; TODO-Matt
+;; - investigate window splitting and moving between them / rearranging them (maybe add keymaps?)
 ;; - investigate actually using dired
 ;; - investigate actually using magit
 ;; - investigate compilation mode
 ;; - term / vterm / eshell for running commands and using the terminal output easily
 ;; - keymaps for fuzzy finding, and opening dired at the current file
+;; - wtf does projectile actually do?
 
 (load "~/.config/emacs/odin-mode.el")
 
