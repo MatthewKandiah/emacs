@@ -1,0 +1,7 @@
+.cache/
+.lsp-session-*
+backups/
+eln-cache/
+elpa/
+recentf
+transient/
