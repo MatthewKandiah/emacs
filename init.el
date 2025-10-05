@@ -62,6 +62,7 @@
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-completion-enable t)
   :config
   (setq-default lsp-auto-guess-root t)
   (add-to-list 'lsp-language-id-configuration '(odin-mode . "odin"))
@@ -74,6 +75,13 @@
   ((odin-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
+
+(use-package company
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
 
 ;; TODO-Matt
 ;; - investigate window splitting and moving between them / rearranging them (maybe add keymaps?)
