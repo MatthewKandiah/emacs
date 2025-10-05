@@ -84,10 +84,6 @@
   (company-idle-delay 0.0))
 
 ;; TODO-Matt
-;; - investigate window splitting and moving between them / rearranging them (maybe add keymaps?)
-;; - investigate actually using dired
-;; - investigate actually using magit
-;; - investigate compilation mode
 ;; - term / vterm / eshell for running commands and using the terminal output easily
 ;; - install multiple-cursor see if it's worth using
 ;; - keymaps for fuzzy finding, and opening dired at the current file, and using multiple cursors
