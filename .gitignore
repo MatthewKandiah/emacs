@@ -5,3 +5,5 @@ eln-cache/
 elpa/
 recentf
 transient/
+auto-save-list/
+ido.last
