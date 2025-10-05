@@ -3,7 +3,6 @@
 (tooltip-mode -1)
 (menu-bar-mode -1)
 (setq inhibit-splash-screen t)
-(load-theme 'leuven-dark)
 (setq visible-bell t)
 
 (column-number-mode)
@@ -11,10 +10,28 @@
 
 (setq scroll-conservatively 1000)
 
-;; check these are actually used
-(make-directory "~/.config/emacs/autosaves/" t)
-(make-directory "~/.config/emacs/backups/" t)
+(use-package gruber-darker-theme
+  :ensure t
+  :init (load-theme 'gruber-darker t))
 
+;; configure backups and autosaves
+(let ((backup-dir "~/tmp/emacs/backups")
+      (auto-saves-dir "~/tmp/emacs/autosaves/"))
+  (dolist (dir (list backup-dir auto-saves-dir))
+    (when (not (file-directory-p dir))
+      (make-directory dir t)))
+  (setq backup-directory-alist `(("." . ,backup-dir))
+        auto-save-file-name-transforms `((".*" ,auto-saves-dir t))
+        auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
+        tramp-backup-directory-alist `((".*" . ,backup-dir))
+        tramp-auto-save-directory auto-saves-dir))
+(setq backup-by-copying t    ; Don't delink hardlinks
+      delete-old-versions t  ; Clean up the backups
+      version-control t      ; Use version numbers on backups,
+      kept-new-versions 5    ; keep some new versions
+      kept-old-versions 2)   ; and some old ones, too
+
+;; please stop trampling all over my config
 (setq custom-file "~/.config/emacs/emacs.custom")
 
 ;; because I keep accidentally doing this when I want "C-x C-f"
@@ -22,7 +39,8 @@
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("elpa" . "https://elpa.gnu.org/packages/")))
+			 ("elpa" . "https://elpa.gnu.org/packages/")
+			 ("elpanongnu" . "https://elpa.nongnu.org/packages")))
 (package-initialize)
 (require 'use-package)
 (setq use-package-always-ensure t)
