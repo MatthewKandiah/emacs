@@ -88,5 +88,3 @@
 ;; - install multiple-cursor see if it's worth using
 ;; - keymaps for fuzzy finding, and opening dired at the current file, and using multiple cursors
 ;; - wtf does projectile actually do?
-;; - wtf does ivy do?
-;; - wtf does company actually do?
