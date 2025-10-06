@@ -99,3 +99,4 @@
 ;; - install multiple-cursor see if it's worth using
 ;; - keymaps for fuzzy finding, and opening dired at the current file, and using multiple cursors
 ;; - wtf does projectile actually do?
+;; - https://www.masteringemacs.org/article/executing-shell-commands-emacs has a lot of the convenient shell interaction that I was hoping to find
