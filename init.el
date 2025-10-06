@@ -94,6 +94,12 @@
       (message "Opening file...")
     (message "Aborting")))
 
+(use-package multiple-cursors
+  :bind(("C-c C-c" . 'mc/edit-lines)
+	("C->" . 'mc/mark-next-like-this)
+	("C-<" . 'mc/mark-previous-like-this)
+	("C-c C-a" . 'mc/mark-all-like-this)))
+
 ;; TODO-Matt
 ;; - term / vterm / eshell for running commands and using the terminal output easily
 ;; - install multiple-cursor see if it's worth using
