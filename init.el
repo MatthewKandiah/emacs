@@ -82,7 +82,17 @@
   (company-minimum-prefix-length 1)
   (company-idle-delay nil)
   :bind(("C-<tab>" . 'company-complete)))
-  
+
+(require 'recentf)
+(global-set-key (kbd "C-x C-r") 'ido-recentf-open)
+(recentf-mode t)
+(setq recentf-max-saved-items 100)
+(defun ido-recentf-open ()
+  "Use `ido-completing-read` to \\[find-file] a recent file"
+  (interactive)
+  (if (find-file (ido-completing-read "Find recent file: " recentf-list))
+      (message "Opening file...")
+    (message "Aborting")))
 
 ;; TODO-Matt
 ;; - term / vterm / eshell for running commands and using the terminal output easily
