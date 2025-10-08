@@ -100,6 +100,11 @@
 	("C-<" . 'mc/mark-previous-like-this)
 	("C-c C-a" . 'mc/mark-all-like-this)))
 
+(setq treesit-language-source-alist
+      '((typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+	(tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")))
+
 ;; TODO-Matt
+;; - treesitter
 ;; - keymaps for fuzzy finding, and opening dired at the current file, and using multiple cursors
 ;; - https://www.masteringemacs.org/article/executing-shell-commands-emacs has a lot of the convenient shell interaction that I was hoping to find
