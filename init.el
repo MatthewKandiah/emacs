@@ -72,8 +72,12 @@
 		    :multi-root t))
   :hook
   ((odin-mode . lsp)
+   (c-mode . lsp)
+   (typescript-ts-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
+
+(add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-ts-mode))
 
 (use-package company
   :after lsp-mode
@@ -103,6 +107,8 @@
 (setq treesit-language-source-alist
       '((typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
 	(tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")))
+
+(require 'project)
 
 ;; TODO-Matt
 ;; - treesitter
