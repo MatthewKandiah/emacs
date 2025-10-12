@@ -37,6 +37,9 @@
 ;; because I keep accidentally doing this when I want "C-x C-f"
 (keymap-global-unset "C-x f")
 
+;; think I'll use this as my "leader key" - default bound to `transpose-chars`
+(keymap-global-unset "C-t")
+
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("elpa" . "https://elpa.gnu.org/packages/")
@@ -45,15 +48,27 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(require 'ido)
-(setq ido-everywhere t)
-(ido-mode t)
-
 (use-package which-key
     :defer 0
     :config
     (which-key-mode 1)
     (setq which-key-idle-delay 1))
+
+(use-package ivy
+  :config
+  (ivy-mode 1))
+
+(use-package counsel
+  :config
+  (counsel-mode 1))
+
+(use-package ivy-prescient
+  :after counsel
+  :config
+  (ivy-prescient-mode))
+
+(use-package lsp-ivy
+  :after lsp)
 
 (use-package magit
   :commands magit-status)
@@ -83,20 +98,14 @@
   :after lsp-mode
   :hook (lsp-mode . company-mode)
   :custom
-  (company-minimum-prefix-length 1)
+  (company-minimum-prefix-length 0)
   (company-idle-delay nil)
   :bind(("C-<tab>" . 'company-complete)))
 
 (require 'recentf)
-(global-set-key (kbd "C-x C-r") 'ido-recentf-open)
+(global-set-key (kbd "C-x C-r") 'recentf-open)
 (recentf-mode t)
 (setq recentf-max-saved-items 100)
-(defun ido-recentf-open ()
-  "Use `ido-completing-read` to \\[find-file] a recent file"
-  (interactive)
-  (if (find-file (ido-completing-read "Find recent file: " recentf-list))
-      (message "Opening file...")
-    (message "Aborting")))
 
 (use-package multiple-cursors
   :bind(("C-c C-c" . 'mc/edit-lines)
