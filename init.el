@@ -125,6 +125,8 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
+(use-package speed-type)
+
 ;; TODO-Matt
 ;; - treesitter
 ;; - keymaps for fuzzy finding, and opening dired at the current file, and using multiple cursors
