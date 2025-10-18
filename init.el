@@ -89,6 +89,7 @@
   ((odin-mode . lsp)
    (c-mode . lsp)
    (typescript-ts-mode . lsp)
+   (python-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
@@ -118,6 +119,11 @@
 	(tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")))
 
 (require 'project)
+
+(use-package exec-path-from-shell
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
 
 ;; TODO-Matt
 ;; - treesitter
