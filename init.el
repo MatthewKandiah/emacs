@@ -5,7 +5,8 @@
 (setq inhibit-splash-screen t)
 (setq visible-bell t)
 
-(column-number-mode)
+(column-number-mode t)
+(delete-selection-mode t)
 (global-display-line-numbers-mode t)
 
 (setq scroll-conservatively 1000)
@@ -101,7 +102,7 @@
   :custom
   (company-minimum-prefix-length 0)
   (company-idle-delay nil)
-  :bind(("C-<tab>" . 'company-complete)))
+  :bind(("C-<return>" . 'company-complete)))
 
 (require 'recentf)
 (global-set-key (kbd "C-x C-r") 'recentf-open)
