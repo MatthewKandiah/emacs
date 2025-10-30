@@ -79,6 +79,9 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :config
+  ;; lsp-mode docs recommend increasing some emacs defaults, they are too low for the lsp client to function properly
+  (setq gc-cons-threshold 100000000)
+  (setq read-process-output-max (* 1024 1024))
   (setq-default lsp-auto-guess-root t)
   (add-to-list 'lsp-language-id-configuration '(odin-mode . "odin"))
   (lsp-register-client
