@@ -94,7 +94,12 @@
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
-(add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-ts-mode))
+(use-package treesit-auto
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
 
 (use-package company
   :after lsp-mode
@@ -114,10 +119,6 @@
 	("C->" . 'mc/mark-next-like-this)
 	("C-<" . 'mc/mark-previous-like-this)
 	("C-c C-a" . 'mc/mark-all-like-this)))
-
-(setq treesit-language-source-alist
-      '((typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-	(tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")))
 
 (require 'project)
 

@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(keychain-environment tuareg which-key speed-type multiple-cursors magit lsp-ivy ivy-prescient gruber-darker-theme exec-path-from-shell counsel company)))
+   '(treesit-auto tuareg which-key speed-type multiple-cursors magit lsp-ivy keychain-environment ivy-prescient gruber-darker-theme exec-path-from-shell counsel company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
