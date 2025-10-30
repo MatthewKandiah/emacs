@@ -136,7 +136,9 @@
   :config
   (keychain-refresh-environment))
 
+;; TODO-MATT: add to C-t keymap for easy use
 (defun insert-todo ()
+  (interactive)
   (save-excursion
     (move-beginning-of-line nil)
     (insert "\n")
