@@ -128,6 +128,10 @@
 
 (use-package speed-type)
 
+(use-package keychain-environment
+  :config
+  (keychain-refresh-environment))
+
 (defun insert-todo ()
   (save-excursion
     (move-beginning-of-line nil)
@@ -135,7 +139,3 @@
     (previous-line)
     (insert "TODO-MATT")
     (comment-line 1)))
-
-;; - treesitter
-;; - keymaps for fuzzy finding, and opening dired at the current file, and using multiple cursors
-;; - https://www.masteringemacs.org/article/executing-shell-commands-emacs has a lot of the convenient shell interaction that I was hoping to find
