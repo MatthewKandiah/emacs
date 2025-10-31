@@ -95,6 +95,7 @@
    (typescript-ts-mode . lsp)
    (tsx-ts-mode . lsp)
    (python-mode . lsp)
+   (kotlin-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
@@ -132,6 +133,8 @@
 (use-package keychain-environment
   :config
   (keychain-refresh-environment))
+
+(use-package kotlin-mode)
 
 ;; TODO-MATT: add to C-t keymap for easy use
 (defun insert-todo ()
