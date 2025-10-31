@@ -93,16 +93,13 @@
   ((odin-mode . lsp)
    (c-mode . lsp)
    (typescript-ts-mode . lsp)
+   (tsx-ts-mode . lsp)
    (python-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
-(use-package treesit-auto
-  :custom
-  (treesit-auto-install 'prompt)
-  :config
-  (treesit-auto-add-to-auto-mode-alist 'all)
-  (global-treesit-auto-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
 
 (use-package company
   :after lsp-mode
