@@ -79,7 +79,7 @@
 (load "~/.config/emacs/odin-mode.el")
 (use-package lsp-mode
   :init
-  (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-keymap-prefix "C-t l")
   :config
   ;; lsp-mode docs recommend increasing some emacs defaults, they are too low for the lsp client to function properly
   (setq gc-cons-threshold 100000000)
