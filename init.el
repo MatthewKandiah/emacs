@@ -40,6 +40,8 @@
 
 ;; think I'll use this as my "leader key" - default bound to `transpose-chars`
 (keymap-global-unset "C-t")
+(keymap-global-set "C-t t" 'insert-todo)
+(keymap-global-set "C-t e" 'flymake-show-buffer-diagnostics)
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -136,7 +138,6 @@
 
 (use-package kotlin-mode)
 
-;; TODO-MATT: add to C-t keymap for easy use
 (defun insert-todo ()
   (interactive)
   (save-excursion
