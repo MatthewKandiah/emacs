@@ -138,6 +138,9 @@
 
 (use-package kotlin-mode)
 
+(use-package undo-tree
+  :config (global-undo-tree-mode))
+
 (defun insert-todo ()
   (interactive)
   (save-excursion
