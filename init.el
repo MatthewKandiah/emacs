@@ -139,7 +139,9 @@
 (use-package kotlin-mode)
 
 (use-package undo-tree
-  :config (global-undo-tree-mode))
+  :config
+  (global-undo-tree-mode)
+  (setq undo-tree-auto-save-history nil))
 
 (defun insert-todo ()
   (interactive)
