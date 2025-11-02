@@ -145,6 +145,8 @@
   (global-undo-tree-mode)
   (setq undo-tree-auto-save-history nil))
 
+(display-battery-mode t)
+
 (defun insert-todo ()
   (interactive)
   (save-excursion
