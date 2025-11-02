@@ -155,3 +155,6 @@
     (previous-line)
     (insert "TODO-MATT")
     (comment-line 1)))
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
