@@ -15,6 +15,10 @@
   :ensure t
   :init (load-theme 'gruber-darker t))
 
+(use-package naysayer-theme
+  :ensure t
+  :init (load-theme 'naysayer t))
+
 ;; configure backups and autosaves
 (let ((backup-dir "~/tmp/emacs/backups")
       (auto-saves-dir "~/tmp/emacs/autosaves/"))
