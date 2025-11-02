@@ -129,6 +129,9 @@
 
 (use-package exec-path-from-shell
   :config
+  (add-to-list 'exec-path-from-shell-variables "ODIN_ROOT")
+  (add-to-list 'exec-path-from-shell-variables "LD_LIBRARY_PATH")
+  (add-to-list 'exec-path-from-shell-variables "VK_ADD_LAYER_PATH")
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
