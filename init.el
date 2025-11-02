@@ -42,6 +42,8 @@
 (keymap-global-unset "C-t")
 (keymap-global-set "C-t t" 'insert-todo)
 (keymap-global-set "C-t e" 'flymake-show-buffer-diagnostics)
+(keymap-global-set "C-t c" 'compile)
+(keymap-global-set "C-t C" 'recompile)
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
