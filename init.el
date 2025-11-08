@@ -80,7 +80,8 @@
   :after lsp)
 
 (use-package magit
-  :commands magit-status)
+  :commands magit-status
+  :config (setq magit-save-repository-buffers 'dontask))
 
 (load "~/.config/emacs/odin-mode.el")
 (use-package lsp-mode
