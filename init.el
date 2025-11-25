@@ -44,11 +44,10 @@
 (keymap-global-unset "C-x f")
 
 ;; think I'll use this as my "leader key" - default bound to `transpose-chars`
-(keymap-global-unset "C-t")
-(keymap-global-set "C-t t" 'insert-todo)
-(keymap-global-set "C-t e" 'flymake-show-buffer-diagnostics)
-(keymap-global-set "C-t c" 'compile)
-(keymap-global-set "C-t C" 'recompile)
+(keymap-global-set "C-c t" 'insert-todo)
+(keymap-global-set "C-c e" 'flymake-show-buffer-diagnostics)
+(keymap-global-set "C-c c" 'compile)
+(keymap-global-set "C-c C" 'recompile)
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -87,7 +86,7 @@
 (load "~/.config/emacs/odin-mode.el")
 (use-package lsp-mode
   :init
-  (setq lsp-keymap-prefix "C-t l")
+  (setq lsp-keymap-prefix "C-c l")
   :config
   ;; lsp-mode docs recommend increasing some emacs defaults, they are too low for the lsp client to function properly
   (setq gc-cons-threshold 100000000)
