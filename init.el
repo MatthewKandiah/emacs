@@ -9,6 +9,7 @@
 (delete-selection-mode t)
 (global-display-line-numbers-mode t)
 
+(set-face-attribute 'default nil :height 180)
 (setq scroll-conservatively 1000)
 
 (use-package gruber-darker-theme
