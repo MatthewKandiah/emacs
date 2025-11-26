@@ -42,8 +42,6 @@
 
 ;; because I keep accidentally doing this when I want "C-x C-f"
 (keymap-global-unset "C-x f")
-
-;; think I'll use this as my "leader key" - default bound to `transpose-chars`
 (keymap-global-set "C-c t" 'insert-todo)
 (keymap-global-set "C-c e" 'flymake-show-buffer-diagnostics)
 (keymap-global-set "C-c c" 'compile)
