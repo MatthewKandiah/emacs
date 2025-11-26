@@ -48,6 +48,8 @@
 (keymap-global-set "C-c e" 'flymake-show-buffer-diagnostics)
 (keymap-global-set "C-c c" 'compile)
 (keymap-global-set "C-c C" 'recompile)
+(keymap-global-set "C-c n" 'next-error)
+(keymap-global-set "C-c p" 'previous-error)
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
