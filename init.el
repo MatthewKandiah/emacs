@@ -44,12 +44,13 @@
 (keymap-global-unset "C-x f")
 ;; because I keep accidentally doing this when I want "C-x p"
 (keymap-global-unset "C-x C-p")
+
 (keymap-global-set "C-c t" 'insert-todo)
 (keymap-global-set "C-c e" 'flymake-show-buffer-diagnostics)
 (keymap-global-set "C-c c" 'compile)
 (keymap-global-set "C-c C" 'recompile)
-(keymap-global-set "C-c n" 'flymake-goto-next-error)
-(keymap-global-set "C-c p" 'flymake-goto-prev-error)
+(keymap-global-set "C-c n" 'next-error)
+(keymap-global-set "C-c p" 'previous-error)
 (keymap-global-set "C-c %" 'mark-page)
 
 (require 'package)
