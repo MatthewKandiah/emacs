@@ -8,6 +8,7 @@
 (column-number-mode t)
 (delete-selection-mode t)
 (global-display-line-numbers-mode t)
+(display-battery-mode t)
 
 (set-face-attribute 'default nil :height 180)
 (setq scroll-conservatively 1000)
@@ -15,10 +16,6 @@
 (use-package gruber-darker-theme
   :ensure t
   :init (load-theme 'gruber-darker t))
-
-;; (use-package naysayer-theme
-;;   :ensure t
-;;   :init (load-theme 'naysayer t))
 
 ;; configure backups and autosaves
 (let ((backup-dir "~/tmp/emacs/backups")
@@ -78,7 +75,8 @@
 (use-package ivy-prescient
   :after counsel
   :config
-  (ivy-prescient-mode))
+  (ivy-prescient-mode)
+  (setq prescient-filter-method '(literal regexp initialism fuzzy)))
 
 (use-package lsp-ivy
   :after lsp)
@@ -144,8 +142,6 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
-(use-package speed-type)
-
 (use-package keychain-environment
   :config
   (keychain-refresh-environment))
@@ -156,8 +152,6 @@
   :config
   (global-undo-tree-mode)
   (setq undo-tree-auto-save-history nil))
-
-(display-battery-mode t)
 
 (defun insert-todo ()
   (interactive)
@@ -174,5 +168,4 @@
 (defun colorize-compilation-buffer ()
   (ansi-color-apply-on-region compilation-filter-start (point)))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
-
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
