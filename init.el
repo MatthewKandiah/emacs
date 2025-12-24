@@ -49,6 +49,7 @@
 (keymap-global-set "C-c n" 'next-error)
 (keymap-global-set "C-c p" 'previous-error)
 (keymap-global-set "C-c %" 'mark-page)
+(keymap-global-set "M-DEL" 'clear-line)
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -156,3 +157,8 @@
   (ansi-color-apply-on-region compilation-filter-start (point)))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+(defun clear-line ()
+  (interactive)
+  (move-beginning-of-line nil)
+  (kill-line))
