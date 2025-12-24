@@ -58,28 +58,20 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+(use-package ido
+  :config
+  (ido-mode t)
+  (ido-everywhere t)
+  (setq magit-completing-read-function 'magit-ido-completing-read))
+(use-package ido-completing-read+
+  :config
+  (ido-ubiquitous-mode t))
+
 (use-package which-key
     :defer 0
     :config
     (which-key-mode 1)
     (setq which-key-idle-delay 1))
-
-(use-package ivy
-  :config
-  (ivy-mode 1))
-
-(use-package counsel
-  :config
-  (counsel-mode 1))
-
-(use-package ivy-prescient
-  :after counsel
-  :config
-  (ivy-prescient-mode)
-  (setq prescient-filter-method '(literal regexp initialism fuzzy)))
-
-(use-package lsp-ivy
-  :after lsp)
 
 (use-package magit
   :commands magit-status
@@ -120,11 +112,6 @@
   (company-minimum-prefix-length 0)
   (company-idle-delay nil)
   :bind(("C-<return>" . 'company-complete)))
-
-(require 'recentf)
-(global-set-key (kbd "C-x C-r") 'recentf-open)
-(recentf-mode t)
-(setq recentf-max-saved-items 100)
 
 (use-package multiple-cursors
   :bind(("C-c C-c" . 'mc/edit-lines)
