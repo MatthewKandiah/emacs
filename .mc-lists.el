@@ -4,8 +4,10 @@
 (setq mc/cmds-to-run-for-all
       '(
 	company-complete
+	indent-for-tab-command
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	lsp-signature-stop
 	))
