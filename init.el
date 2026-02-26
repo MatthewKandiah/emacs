@@ -44,16 +44,9 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(use-package ido
-  :config
-  (ido-mode t)
-  (setq ido-enable-flex-matching t)
-  (ido-everywhere t)
-  (setq magit-completing-read-function 'magit-ido-completing-read))
-
-(use-package ido-completing-read+
-  :config
-  (ido-ubiquitous-mode t))
+(use-package vertico
+  :init
+  (vertico-mode t))
 
 (use-package which-key
     :defer 0
