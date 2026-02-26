@@ -87,8 +87,8 @@
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
 
 (use-package company
-  :init
-  (company-mode t)
+  :config
+  (global-company-mode t)
   :custom
   (company-minimum-prefix-length 0)
   (company-idle-delay nil)
