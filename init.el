@@ -97,7 +97,7 @@
   (setq company-require-match nil)
   (setq company-frontends '(company-pseudo-tooltip-frontend company-preview-common-frontend))
   (setq company-backends
-	'((company-capf :with company-dabbrev-code company-files)))
+	'((company-capf company-yasnippet :with company-dabbrev-code company-files)))
   (setq company-transformers '(company-sort-by-backend-importance))
   :bind(("C-<return>" . 'company-complete)))
 
@@ -127,6 +127,11 @@
   :config
   (global-undo-tree-mode)
   (setq undo-tree-auto-save-history nil))
+
+(use-package yasnippet
+  :config
+  (setq yas-snippet-dirs '("~/.config/emacs/snippets"))
+  (yas-global-mode t))
 
 ;; let me use these functions please
 (put 'upcase-region 'disabled nil)
