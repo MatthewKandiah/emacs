@@ -10,7 +10,7 @@
 (global-display-line-numbers-mode t)
 (display-battery-mode t)
 
-(set-face-attribute 'default nil :height 180)
+(set-face-attribute 'default nil :height 140)
 (setq scroll-conservatively 1000)
 
 (use-package gruber-darker-theme
@@ -18,21 +18,8 @@
   :init (load-theme 'gruber-darker t))
 
 ;; configure backups and autosaves
-(let ((backup-dir "~/tmp/emacs/backups")
-      (auto-saves-dir "~/tmp/emacs/autosaves/"))
-  (dolist (dir (list backup-dir auto-saves-dir))
-    (when (not (file-directory-p dir))
-      (make-directory dir t)))
-  (setq backup-directory-alist `(("." . ,backup-dir))
-        auto-save-file-name-transforms `((".*" ,auto-saves-dir t))
-        auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
-        tramp-backup-directory-alist `((".*" . ,backup-dir))
-        tramp-auto-save-directory auto-saves-dir))
-(setq backup-by-copying t    ; Don't delink hardlinks
-      delete-old-versions t  ; Clean up the backups
-      version-control t      ; Use version numbers on backups,
-      kept-new-versions 5    ; keep some new versions
-      kept-old-versions 2)   ; and some old ones, too
+(setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;; please stop trampling all over my config
 (setq custom-file "~/.config/emacs/emacs.custom")
@@ -42,10 +29,8 @@
 ;; because I keep accidentally doing this when I want "C-x p"
 (keymap-global-unset "C-x C-p")
 
-(keymap-global-set "C-c t" 'insert-todo)
 (keymap-global-set "C-c e" 'flymake-show-buffer-diagnostics)
-(keymap-global-set "C-c c" 'compile)
-(keymap-global-set "C-c C" 'recompile)
+(keymap-global-set "C-c c" 'recompile)
 (keymap-global-set "C-c n" 'next-error)
 (keymap-global-set "C-c p" 'previous-error)
 (keymap-global-set "C-c %" 'mark-page)
@@ -65,6 +50,7 @@
   (setq ido-enable-flex-matching t)
   (ido-everywhere t)
   (setq magit-completing-read-function 'magit-ido-completing-read))
+
 (use-package ido-completing-read+
   :config
   (ido-ubiquitous-mode t))
@@ -142,15 +128,7 @@
   (global-undo-tree-mode)
   (setq undo-tree-auto-save-history nil))
 
-(defun insert-todo ()
-  (interactive)
-  (save-excursion
-    (move-beginning-of-line nil)
-    (insert "\n")
-    (previous-line)
-    (insert "TODO-MATT")
-    (comment-line 1)))
-
+;; let me use these functions please
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
