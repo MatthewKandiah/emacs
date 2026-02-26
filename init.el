@@ -87,11 +87,18 @@
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
 
 (use-package company
-  :after lsp-mode
-  :hook (lsp-mode . company-mode)
+  :init
+  (company-mode t)
   :custom
   (company-minimum-prefix-length 0)
   (company-idle-delay nil)
+  (setq company-show-quick-access 'left)
+  (setq company-tooltip-limit 9)
+  (setq company-require-match nil)
+  (setq company-frontends '(company-pseudo-tooltip-frontend company-preview-common-frontend))
+  (setq company-backends
+	'((company-capf :with company-dabbrev-code company-files)))
+  (setq company-transformers '(company-sort-by-backend-importance))
   :bind(("C-<return>" . 'company-complete)))
 
 (use-package multiple-cursors
