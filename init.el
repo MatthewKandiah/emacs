@@ -87,18 +87,32 @@
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
 
 (use-package company
-  :config
-  (global-company-mode t)
-  (setq-default company-backends
-		'((company-capf company-yasnippet :with company-dabbrev-code company-files)))
-  (setq-default company-minimum-prefix-length 0)
-  (setq-default company-idle-delay nil)
-  (setq-default company-show-quick-access 'left)
-  (setq-default company-tooltip-limit 9)
-  (setq-default company-require-match nil)
-  (setq-default company-frontends '(company-pseudo-tooltip-frontend company-preview-common-frontend))
-  (setq-default company-transformers '(company-sort-by-backend-importance))
-  :bind(("C-<return>" . 'company-complete)))
+  :hook
+  (
+   (prog-mode)
+   (prog-mode . set-company-values)
+   (lsp-mode . set-company-value)
+   )
+  :bind(("C-<return> C-<return>" . 'company-capf)
+	("C-<return> f" . 'company-files)
+	("C-<return> d" . 'company-dabbrev)))
+
+;; values seem to get messed with, presumably by other modes' hooks? Setting in a hook like this seems to fix, guess it overwrites those updates
+(defun set-company-values ()
+(setq company-backends
+      '((company-capf
+	company-yasnippet
+	company-dabbrev-code
+	company-files)))
+(setq company-minimum-prefix-length 0)
+(setq company-idle-delay nil)
+(setq company-show-quick-access 'left)
+(setq company-tooltip-limit 9)
+(setq company-require-match nil)
+(setq company-dabbrev-downcase nil)
+(setq company-frontends '(company-pseudo-tooltip-frontend company-preview-common-frontend))
+(setq company-transformers '(company-sort-by-backend-importance))
+)
 
 (use-package multiple-cursors
   :bind(("C-c C-c" . 'mc/edit-lines)
