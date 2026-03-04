@@ -91,7 +91,7 @@
   (
    (prog-mode)
    (prog-mode . set-company-values)
-   (lsp-mode . set-company-value)
+   (lsp-mode . set-company-values)
    )
   :bind(("C-<return> C-<return>" . 'company-capf)
 	("C-<return> f" . 'company-files)
