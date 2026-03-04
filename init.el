@@ -110,7 +110,7 @@
 (setq company-tooltip-limit 9)
 (setq company-require-match nil)
 (setq company-dabbrev-downcase nil)
-(setq company-frontends '(company-pseudo-tooltip-frontend company-preview-common-frontend))
+(setq company-frontends '(company-pseudo-tooltip-frontend))
 (setq company-transformers '(company-sort-by-backend-importance))
 )
 
