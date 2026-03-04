@@ -159,3 +159,10 @@
   (interactive)
   (move-beginning-of-line nil)
   (kill-line))
+
+(setq read-file-name-completion-ignore-case t
+      read-buffer-completion-ignore-case t
+      completion-ignore-case t
+      completion-category-defaults nil
+      completion-category-overrides nil
+      completion-styles '(basic substring flex))
