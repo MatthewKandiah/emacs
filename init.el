@@ -12,6 +12,7 @@
 
 (set-face-attribute 'default nil :height 140)
 (setq scroll-conservatively 1000)
+(setq set-mark-command-repeat-pop t)
 
 (use-package gruber-darker-theme
   :ensure t
