@@ -35,6 +35,7 @@
 (keymap-global-set "C-c n" 'next-error)
 (keymap-global-set "C-c p" 'previous-error)
 (keymap-global-set "C-c %" 'mark-page)
+(keymap-global-set "C-c s" 'subword-mode)
 (keymap-global-set "M-DEL" 'clear-line)
 
 (require 'package)
