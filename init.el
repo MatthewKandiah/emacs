@@ -170,3 +170,11 @@
       completion-category-defaults nil
       completion-category-overrides nil
       completion-styles '(basic substring flex))
+
+(defun add-to-compilation-search-path ()
+  (interactive)
+  (add-to-list 'compilation-search-path (read-directory-name "Dir:")))
+
+(defun reset-compilation-search-path ()
+  (interactive)
+  (setq compilation-search-path '(nil)))
