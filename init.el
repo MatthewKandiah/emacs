@@ -52,6 +52,14 @@
   :init
   (vertico-mode t))
 
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles partial-completion))))
+  (completion-pcm-leading-wildcard t)
+  (orderless-matching-styles '(orderless-literal orderless-flex orderless-regexp)))
+
 (use-package which-key
     :defer 0
     :config
@@ -163,13 +171,6 @@
   (interactive)
   (move-beginning-of-line nil)
   (kill-line))
-
-(setq read-file-name-completion-ignore-case t
-      read-buffer-completion-ignore-case t
-      completion-ignore-case t
-      completion-category-defaults nil
-      completion-category-overrides nil
-      completion-styles '(basic substring flex))
 
 (defun add-to-compilation-search-path ()
   (interactive)
