@@ -58,7 +58,7 @@
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles partial-completion))))
   (completion-pcm-leading-wildcard t)
-  (orderless-matching-styles '(orderless-literal orderless-flex orderless-regexp)))
+  (orderless-matching-styles '(orderless-literal orderless-regexp)))
 
 (use-package which-key
     :defer 0
@@ -92,6 +92,7 @@
    (tsx-ts-mode . lsp)
    (python-mode . lsp)
    (kotlin-mode . lsp)
+   (zig-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
