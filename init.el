@@ -103,8 +103,14 @@
    (python-mode . lsp)
    (kotlin-mode . lsp)
    (zig-mode . lsp)
+   (css-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
+
+(setq css-indent-offset 2)
+(setq-default js-indent-level 2)
+(setq-default typescript-ts-mode-indent-offset 2)
+(setq-default tsx-ts-mode-indent-offset 2)
 
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
