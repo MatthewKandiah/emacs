@@ -39,6 +39,7 @@
 (keymap-global-set "M-<left>" 'subword-backward)
 (keymap-global-set "M-<right>" 'subword-forward)
 (keymap-global-set "M-DEL" 'clear-line)
+(keymap-global-set "C-c a" 'add-to-compilation-search-path)
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -59,6 +60,15 @@
   (completion-category-overrides '((file (styles partial-completion))))
   (completion-pcm-leading-wildcard t)
   (orderless-matching-styles '(orderless-literal orderless-regexp)))
+
+(use-package consult
+  :bind (
+         ("C-s" . consult-line) ;; Search within the current buffer
+         ("C-x b" . consult-buffer) ;; Better buffer switching with previews
+         ("C-c C-s" . consult-line-multi) ;; Find occurrences across all open buffer
+	 ("C-c g" . consult-git-grep) ;; Grep VCed files within project
+	 ("C-c C-g" . consult-grep) ;; Grep all files within project
+	 ))
 
 (use-package which-key
     :defer 0
