@@ -10,7 +10,7 @@
 (global-display-line-numbers-mode t)
 (display-battery-mode t)
 
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 200)
 (setq scroll-conservatively 1000)
 (setq set-mark-command-repeat-pop t)
 
